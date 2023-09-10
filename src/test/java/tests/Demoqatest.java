@@ -1,5 +1,7 @@
+package tests;
+
 import com.codeborne.selenide.Configuration;
-import com.gmail.oleg12.medvedev.test_data.birthday;
+import test_data.Birthday;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -8,19 +10,18 @@ import java.io.File;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.gmail.oleg12.medvedev.test_data.positive_test_data.*;
+import static test_data.Positive_test_data.*;
 
-public class demoqatest {
+public class Demoqatest {
 
     @BeforeAll
-    static void openDemoQA() {
+    static void OpenDemoQA() {
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.holdBrowserOpen = true;
         Configuration.browserSize = "1920x1080";
     }
 
     @Test
-    void successfulAllFieldsTest() {
+    void SuccessfulAllFieldsTest() {
 
         open("/automation-practice-form");
 
@@ -44,9 +45,9 @@ public class demoqatest {
 
         //entering birthdate
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__year-select").selectOption(birthday.year);
-        $(".react-datepicker__month-select").selectOption(birthday.month);
-        $(".react-datepicker__month").$(byText(birthday.day)).click();
+        $(".react-datepicker__year-select").selectOption(Birthday.year);
+        $(".react-datepicker__month-select").selectOption(Birthday.month);
+        $(".react-datepicker__month").$(byText(Birthday.day)).click();
 
         //entering subject
         $("#subjectsInput").setValue(subject).pressEnter();
@@ -55,7 +56,7 @@ public class demoqatest {
         $("#hobbiesWrapper").$(byText(hobbie)).click();
 
         //uploading test file
-        $("#uploadPicture").uploadFile(new File(test_pic));
+        $("#uploadPicture").uploadFile(new File(upload_file_path));
 
         //entering address
         $("#currentAddress").setValue(current_address);
@@ -72,8 +73,8 @@ public class demoqatest {
         //validation
         $(".table-responsive").shouldHave(text(firstname+" "+lastname),
                 text(userEmail), text(gender), text(userNumber),
-                text(birthday.day + " " + birthday.month + "," + birthday.year), text(subject),
-                text(hobbie), text(test_pic), text(current_address),
+                text(Birthday.day + " " + Birthday.month + "," + Birthday.year), text(subject),
+                text(hobbie), text(test_file), text(current_address),
                 text(state+" "+city));
 
     }
