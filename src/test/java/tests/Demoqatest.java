@@ -15,13 +15,13 @@ import static test_data.Positive_test_data.*;
 public class Demoqatest {
 
     @BeforeAll
-    static void OpenDemoQA() {
+    static void openDemoQA() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
     }
 
     @Test
-    void SuccessfulAllFieldsTest() {
+    void successfulAllFieldsTest() {
 
         open("/automation-practice-form");
 
@@ -56,7 +56,7 @@ public class Demoqatest {
         $("#hobbiesWrapper").$(byText(hobbie)).click();
 
         //uploading test file
-        $("#uploadPicture").uploadFile(new File(upload_file_path));
+        $("#uploadPicture").uploadFromClasspath(test_file);
 
         //entering address
         $("#currentAddress").setValue(current_address);
@@ -76,6 +76,5 @@ public class Demoqatest {
                 text(Birthday.day + " " + Birthday.month + "," + Birthday.year), text(subject),
                 text(hobbie), text(test_file), text(current_address),
                 text(state+" "+city));
-
     }
 }
