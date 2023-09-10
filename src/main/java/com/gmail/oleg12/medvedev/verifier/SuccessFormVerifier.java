@@ -19,4 +19,11 @@ public class SuccessFormVerifier {
                 text(hobbie), text(test_file), text(current_address),
                 text(state+" "+city));
     }
+
+    public static void successFormVerifier(String firstname, String lastname,
+                                           String gender, String userNumber) {
+
+        $(".table-responsive").shouldHave(text(firstname+" "+lastname),
+                text(gender), text(userNumber));
+    }
 }
