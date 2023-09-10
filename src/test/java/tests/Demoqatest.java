@@ -1,11 +1,9 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import test_data.Birthday;
+import com.gmail.oleg12.medvedev.verifier.SuccessFormVerifier;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -45,9 +43,9 @@ public class Demoqatest {
 
         //entering birthdate
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__year-select").selectOption(Birthday.year);
-        $(".react-datepicker__month-select").selectOption(Birthday.month);
-        $(".react-datepicker__month").$(byText(Birthday.day)).click();
+        $(".react-datepicker__year-select").selectOption(birth.year);
+        $(".react-datepicker__month-select").selectOption(birth.month);
+        $(".react-datepicker__month").$(byText(birth.day)).click();
 
         //entering subject
         $("#subjectsInput").setValue(subject).pressEnter();
@@ -71,10 +69,7 @@ public class Demoqatest {
         $("#submit").click();
 
         //validation
-        $(".table-responsive").shouldHave(text(firstname+" "+lastname),
-                text(userEmail), text(gender), text(userNumber),
-                text(Birthday.day + " " + Birthday.month + "," + Birthday.year), text(subject),
-                text(hobbie), text(test_file), text(current_address),
-                text(state+" "+city));
+        SuccessFormVerifier.successFormVerifier(firstname, lastname, userEmail, gender, userNumber,
+                birth, subject, hobbie, test_file, current_address, state, city);
     }
 }

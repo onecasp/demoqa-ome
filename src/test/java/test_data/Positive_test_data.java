@@ -1,5 +1,7 @@
 package test_data;
 
+import com.gmail.oleg12.medvedev.models.Birthday;
+
 public class Positive_test_data {
     public static String firstname = "Something";
     public static String lastname = "New";
@@ -12,5 +14,6 @@ public class Positive_test_data {
     public static String current_address = "Some new address";
     public static String state = "NCR";
     public static String city = "Delhi";
+    public static Birthday birth = new Birthday("12", "May", "1990");
 }
 
