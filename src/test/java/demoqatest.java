@@ -60,14 +60,16 @@ public class demoqatest {
         //entering address
         $("#currentAddress").setValue(current_address);
 
+        //entering state
         $("#state").$("#react-select-3-input").setValue(state).pressEnter();
 
+        //entering city
         $("#city").$("#react-select-4-input").setValue(city).pressEnter();
 
+        //submit the form
         $("#submit").click();
 
         //validation
-
         $(".table-responsive").shouldHave(text(firstname+" "+lastname),
                 text(userEmail), text(gender), text(userNumber),
                 text(birthday.day + " " + birthday.month + "," + birthday.year), text(subject),
