@@ -25,7 +25,7 @@ import test_data.PositiveTestDataRequired;
 
 public class RegistrationPage {
 
-   CalendarComponent calendar = new CalendarComponent();
+    CalendarComponent calendar = new CalendarComponent();
 
     public RegistrationPage firstNameSet(String firstname) {
         Selenide.$(PracticeFormPage.cssfirstname).setValue(firstname);
@@ -62,23 +62,23 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage birthdaySet (Date birth) {
+    public RegistrationPage birthdaySet(Date birth) {
         Selenide.$(PracticeFormPage.csscalendarinput).click();
         calendar.setDate(birth);
         return this;
     }
 
-    public RegistrationPage subjectSet (String subject) {
+    public RegistrationPage subjectSet(String subject) {
         Selenide.$(PracticeFormPage.csssubject).setValue(subject).pressEnter();
         return this;
     }
 
-    public RegistrationPage hobbieSet (String hobbie) {
+    public RegistrationPage hobbieSet(String hobbie) {
         Selenide.$(PracticeFormPage.csshobbie).$(byText(hobbie)).click();
         return this;
     }
 
-    public RegistrationPage uploadFile (String test_file) {
+    public RegistrationPage uploadFile(String test_file) {
         Selenide.$(PracticeFormPage.cssuploadbutton).uploadFromClasspath(test_file);
         return this;
     }
@@ -89,16 +89,17 @@ public class RegistrationPage {
     }
 
     public RegistrationPage stateSet(String state) {
-        Selenide.$(PracticeFormPage.cssstate).$("#react-select-3-input").setValue(state).pressEnter();
+        Selenide.$(PracticeFormPage.cssstate).$("#react-select-3-input").setValue(state)
+            .pressEnter();
         return this;
     }
 
-    public RegistrationPage citySet (String city) {
+    public RegistrationPage citySet(String city) {
         Selenide.$(PracticeFormPage.csscity).$("#react-select-4-input").setValue(city).pressEnter();
         return this;
     }
 
-    public RegistrationPage fillAllFields (PositiveTestDataAll testData) {
+    public RegistrationPage fillAllFields(PositiveTestDataAll testData) {
         firstNameSet(firstname).lastNameSet(lastname).emailSet(userEmail)
             .genderSet(gender).numberSet(userNumber).birthdaySet(birth).subjectSet(subject)
             .hobbieSet(hobbie).uploadFile(test_file).currentaddressSet(current_address)
@@ -106,10 +107,11 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage requiredFieldsFill (PositiveTestDataRequired testData) {
+    public RegistrationPage requiredFieldsFill(PositiveTestDataRequired testData) {
         firstNameSet(firstname).lastNameSet(lastname).genderSet(gender).numberSet(userNumber);
         return this;
     }
+
     public RegistrationPage submitForm() {
         Selenide.$(PracticeFormPage.csssubmit).click();
         return this;

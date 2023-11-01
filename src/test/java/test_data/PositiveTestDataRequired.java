@@ -1,7 +1,5 @@
 package test_data;
 
-import models.Date;
-
 public class PositiveTestDataRequired {
 
     public static String firstname = "Something";
