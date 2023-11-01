@@ -3,6 +3,7 @@ package pages.componets;
 import models.Date;
 import test_data.PositiveTestDataAll;
 import test_data.PositiveTestDataRequired;
+import test_data.PositiveTextBoxData;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
@@ -41,6 +42,12 @@ public class SuccessFormVerifier {
 
     public static void successFormVerifier(PositiveTestDataRequired testData) {
         $(".table-responsive").shouldHave(text(testData.firstname
-                + " " + testData.lastname),text(testData.userNumber),text(testData.gender));
+            + " " + testData.lastname), text(testData.userNumber), text(testData.gender));
+    }
+
+    public static void successFormVerifier(PositiveTextBoxData testData) {
+        $("#output").shouldHave(text(testData.firstname
+                + " " + testData.lastname), text(testData.userEmail), text(testData.current_address),
+            text(testData.permanent_address));
     }
 }
