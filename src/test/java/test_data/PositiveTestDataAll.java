@@ -1,6 +1,8 @@
 package test_data;
 
-public class Positive_test_data {
+import models.Date;
+
+public class PositiveTestDataAll {
     public static String firstname = "Something";
     public static String lastname = "New";
     public static String userEmail = "somethingnew@testmail.com";
@@ -12,5 +14,11 @@ public class Positive_test_data {
     public static String current_address = "Some new address";
     public static String state = "NCR";
     public static String city = "Delhi";
+    public static Date birth = new Date("12", "May", "1990");
+
+    public PositiveTestDataAll() {
+    }
+
+
 }
 
