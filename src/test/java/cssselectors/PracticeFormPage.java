@@ -14,8 +14,10 @@ public class PracticeFormPage {
     public static String csshobbie = "#hobbiesWrapper";
     public static String cssuploadbutton = "#uploadPicture";
     public static String csscurrentaddress = "#currentAddress";
+    public static String csspermanentaddress = "#permanentAddress";
     public static String cssstate = "#state";
     public static String csscity = "#city";
     public static String csssubmit = "#submit";
+    public static String cssusername = "#userName";
 
 }
