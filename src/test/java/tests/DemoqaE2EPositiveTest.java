@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import test_data.PositiveTestDataAll;
 import test_data.PositiveTestDataRequired;
 
-import static openers.PracticeFormParameters.*;
 import static openers.RegistrationFormOpener.registrationFormOpener;
 import static test_data.PositiveTestDataAll.*;
 
