@@ -4,10 +4,10 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.gmail.oleg12.medvedev.submiter.PracticeFormOpener.practiceFormOpener;
-import static com.gmail.oleg12.medvedev.submiter.PracticeFormParameters.*;
-import static test_data.Positive_test_data.firstname;
-import static test_data.Positive_test_data.lastname;
+import static openers.PracticeFormParameters.*;
+import static openers.RegistrationFormOpener.registrationFormOpener;
+import static test_data.PositiveTestDataAll.firstname;
+import static test_data.PositiveTestDataAll.lastname;
 
 public class ExactFieldPositiveTest {
     @BeforeAll
@@ -19,7 +19,7 @@ public class ExactFieldPositiveTest {
     @Test
     void firstNameSuccessTest() {
 
-        practiceFormOpener();
+        registrationFormOpener();
 
         //validating required and type = text
         firstNameValidation();
@@ -31,7 +31,7 @@ public class ExactFieldPositiveTest {
     @Test
     void lastNameSuccessTest() {
 
-        practiceFormOpener();
+        registrationFormOpener();
 
         //validating required and type = text
         lastNameValidation();

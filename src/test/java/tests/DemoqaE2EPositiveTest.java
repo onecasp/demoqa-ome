@@ -1,89 +1,40 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import com.gmail.oleg12.medvedev.verifier.SuccessFormVerifier;
-import org.junit.jupiter.api.BeforeAll;
+import pages.RegistrationPage;
+import pages.componets.SuccessFormVerifier;
 import org.junit.jupiter.api.Test;
+import test_data.PositiveTestDataAll;
+import test_data.PositiveTestDataRequired;
 
-import static com.gmail.oleg12.medvedev.submiter.PracticeFormOpener.practiceFormOpener;
-import static com.gmail.oleg12.medvedev.submiter.PracticeFormParameters.*;
-import static test_data.Positive_test_data.*;
+import static openers.PracticeFormParameters.*;
+import static openers.RegistrationFormOpener.registrationFormOpener;
+import static test_data.PositiveTestDataAll.*;
 
-public class DemoqaE2EPositiveTest {
-
-    @BeforeAll
-    static void openDemoQA() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-    }
+public class DemoqaE2EPositiveTest extends BaseTest {
 
     @Test
     void successfulAllFieldsTest() {
 
-        practiceFormOpener();
+        registrationFormOpener();
 
-        //entering firstname
-        firstNameSet(firstname);
+        RegistrationPage registrationPage = new RegistrationPage();
+        PositiveTestDataAll positiveTestDataAll = new PositiveTestDataAll();
 
-        //entering lastname
-        lastNameSet(lastname);
-
-        //entering email
-        emailSet(userEmail);
-
-        //pushing "other" radiobutton
-        genderSet(gender);
-
-        //entering user mobile phone
-        numberSet(userNumber);
-
-        //entering birthdate
-        birthdaySet(birth);
-
-        //entering subject
-        subjectSet(subject);
-
-        //setting hobbies
-        hobbieSet(hobbie);
-
-        //uploading test file
-        uploadFile(test_file);
-
-        //entering address
-        currentaddressSet(current_address);
-
-        //entering state
-        stateSet(state);
-
-        //entering city
-        citySet(city);
-
-        //submit the form
-        submitForm();
+        //fill form
+        registrationPage.fillAllFields(positiveTestDataAll).submitForm();
 
         //validation
-        SuccessFormVerifier.successFormVerifier(firstname, lastname, userEmail, gender, userNumber,
-                birth, subject, hobbie, test_file, current_address, state, city);
+        SuccessFormVerifier.successFormVerifier(positiveTestDataAll);
     }
 
     @Test
     void requiredFieldsSuccess() {
-        practiceFormOpener();
+        registrationFormOpener();
 
-        //entering firstname
-        firstNameSet(firstname);
+        RegistrationPage registrationPage = new RegistrationPage();
+        PositiveTestDataRequired positiveTestDataReuired = new PositiveTestDataRequired();
 
-        //entering lastname
-        lastNameSet(lastname);
-
-        //pushing "other" radiobutton
-        genderSet(gender);
-
-        //entering mobile number
-        numberSet(userNumber);
-
-        //submitForm
-        submitForm();
+        registrationPage.requiredFieldsFill(positiveTestDataReuired).submitForm();
 
         SuccessFormVerifier.successFormVerifier(firstname, lastname, gender, userNumber);
     }

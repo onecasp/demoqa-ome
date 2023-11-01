@@ -1,8 +1,8 @@
 package test_data;
 
-import com.gmail.oleg12.medvedev.models.Birthday;
+import models.Date;
 
-public class Positive_test_data {
+public class PositiveTestDataAll {
     public static String firstname = "Something";
     public static String lastname = "New";
     public static String userEmail = "somethingnew@testmail.com";
@@ -14,6 +14,11 @@ public class Positive_test_data {
     public static String current_address = "Some new address";
     public static String state = "NCR";
     public static String city = "Delhi";
-    public static Birthday birth = new Birthday("12", "May", "1990");
+    public static Date birth = new Date("12", "May", "1990");
+
+    public PositiveTestDataAll() {
+    }
+
+
 }
 

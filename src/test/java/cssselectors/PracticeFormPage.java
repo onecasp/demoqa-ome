@@ -1,4 +1,4 @@
-package com.gmail.oleg12.medvedev.cssselectors;
+package cssselectors;
 
 public class PracticeFormPage {
     public static String cssfirstname = "#firstName";

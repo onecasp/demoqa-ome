@@ -1,10 +1,10 @@
-package com.gmail.oleg12.medvedev.submiter;
+package openers;
 
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static com.codeborne.selenide.Selenide.open;
 
-public class PracticeFormOpener {
-    public static void practiceFormOpener() {
+public class RegistrationFormOpener {
+    public static void registrationFormOpener() {
         open("/automation-practice-form");
 
         executeJavaScript("$('#fixedban').remove()");
