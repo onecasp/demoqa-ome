@@ -25,5 +25,9 @@ public class DataGenerator {
 //        return gender;
 //    }
 
+    public String userNumberGeneration() {
+        String userNumber = faker.phoneNumber();
+        return userNumber;
+    }
 
 }
