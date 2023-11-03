@@ -9,13 +9,6 @@ public class DataGenerator {
 
     static Faker faker = new Faker();
 
-    public static void main(String[] args) {
-        Date date = dateGenerator();
-        System.out.println(date.year);
-        System.out.println(date.month);
-        System.out.println(date.day);
-    }
-
     public static String firstNameGeneration() {
         return faker.name().firstName();
     }
