@@ -12,6 +12,7 @@ public class PositiveTestDataAll {
     public static String hobbie = "Sports";
     public static String test_file = "test.txt";
     public static String current_address = "Some new address";
+    public static String permanent_address = "Some permanent address";
     public static String state = "NCR";
     public static String city = "Delhi";
     public static Date birth = new Date("12", "May", "1990");

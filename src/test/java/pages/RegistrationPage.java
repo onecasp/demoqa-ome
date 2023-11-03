@@ -1,27 +1,11 @@
 package pages;
 
-import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Condition.type;
 import static com.codeborne.selenide.Selectors.byText;
-import static test_data.PositiveTestDataAll.birth;
-import static test_data.PositiveTestDataAll.city;
-import static test_data.PositiveTestDataAll.current_address;
-import static test_data.PositiveTestDataAll.firstname;
-import static test_data.PositiveTestDataAll.gender;
-import static test_data.PositiveTestDataAll.hobbie;
-import static test_data.PositiveTestDataAll.lastname;
-import static test_data.PositiveTestDataAll.state;
-import static test_data.PositiveTestDataAll.subject;
-import static test_data.PositiveTestDataAll.test_file;
-import static test_data.PositiveTestDataAll.userEmail;
-import static test_data.PositiveTestDataAll.userNumber;
 
 import com.codeborne.selenide.Selenide;
 import cssselectors.PracticeFormPage;
 import models.Date;
 import pages.componets.CalendarComponent;
-import test_data.PositiveTestDataAll;
-import test_data.PositiveTestDataRequired;
 
 public class RegistrationPage {
 
