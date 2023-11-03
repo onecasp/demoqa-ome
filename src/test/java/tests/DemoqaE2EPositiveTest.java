@@ -1,22 +1,30 @@
 package tests;
 
+import static openers.RegistrationFormOpener.registrationFormOpener;
+import static test_data.PositiveTestDataAll.birth;
+import static test_data.PositiveTestDataAll.city;
+import static test_data.PositiveTestDataAll.current_address;
+import static test_data.PositiveTestDataAll.firstname;
+import static test_data.PositiveTestDataAll.gender;
+import static test_data.PositiveTestDataAll.hobbie;
+import static test_data.PositiveTestDataAll.lastname;
+import static test_data.PositiveTestDataAll.state;
+import static test_data.PositiveTestDataAll.subject;
+import static test_data.PositiveTestDataAll.test_file;
+import static test_data.PositiveTestDataAll.userEmail;
+import static test_data.PositiveTestDataAll.userNumber;
+
+import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import pages.componets.SuccessFormVerifier;
-import org.junit.jupiter.api.Test;
-import test_data.PositiveTestDataAll;
-import test_data.PositiveTestDataRequired;
-
-import static openers.RegistrationFormOpener.registrationFormOpener;
-import static test_data.PositiveTestDataAll.*;
 
 public class DemoqaE2EPositiveTest extends BaseTest {
 
+    RegistrationPage registrationPage = new RegistrationPage();
     @Test
     void successfulAllFieldsTest() {
 
         registrationFormOpener();
-
-        RegistrationPage registrationPage = new RegistrationPage();
 
         //fill form
         registrationPage.firstNameSet(firstname).lastNameSet(lastname).emailSet(userEmail)
@@ -32,8 +40,6 @@ public class DemoqaE2EPositiveTest extends BaseTest {
     @Test
     void requiredFieldsSuccess() {
         registrationFormOpener();
-
-        RegistrationPage registrationPage = new RegistrationPage();
 
         registrationPage.firstNameSet(firstname).lastNameSet(lastname).genderSet(gender)
             .numberSet(userNumber).submitForm();

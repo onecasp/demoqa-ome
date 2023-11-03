@@ -1,12 +1,9 @@
 package pages.componets;
 
-import models.Date;
-import test_data.PositiveTestDataAll;
-import test_data.PositiveTestDataRequired;
-import test_data.PositiveTextBoxData;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
+
+import models.Date;
 
 
 public class SuccessFormVerifier {

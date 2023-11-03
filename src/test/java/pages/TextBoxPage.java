@@ -1,12 +1,8 @@
 package pages;
 
 
-import static test_data.PositiveTextBoxData.*;
-
 import com.codeborne.selenide.Selenide;
 import cssselectors.PracticeFormPage;
-import test_data.PositiveTestDataRequired;
-import test_data.PositiveTextBoxData;
 
 public class TextBoxPage {
 

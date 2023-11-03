@@ -1,19 +1,15 @@
 package tests;
 
-import static openers.RegistrationFormOpener.registrationFormOpener;
 import static openers.TextBoxPageOpener.textBoxFormOpener;
-import static test_data.PositiveTextBoxData.current_address;
-import static test_data.PositiveTextBoxData.firstname;
-import static test_data.PositiveTextBoxData.lastname;
-import static test_data.PositiveTextBoxData.permanent_address;
-import static test_data.PositiveTextBoxData.userEmail;
+import static test_data.PositiveTestDataAll.current_address;
+import static test_data.PositiveTestDataAll.firstname;
+import static test_data.PositiveTestDataAll.lastname;
+import static test_data.PositiveTestDataAll.permanent_address;
+import static test_data.PositiveTestDataAll.userEmail;
 
 import org.junit.jupiter.api.Test;
-import pages.RegistrationPage;
 import pages.TextBoxPage;
 import pages.componets.SuccessFormVerifier;
-import test_data.PositiveTestDataAll;
-import test_data.PositiveTextBoxData;
 
 public class TextBoxTest extends BaseTest {
 
