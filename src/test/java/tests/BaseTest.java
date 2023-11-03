@@ -8,5 +8,6 @@ public class BaseTest {
     static void openDemoQA() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
+        Configuration.pageLoadStrategy = "eager";
     }
 }

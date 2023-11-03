@@ -7,7 +7,4 @@ public class PositiveTestDataRequired {
     public static String gender = "Other";
     public static String userNumber = "1234567890";
 
-    public PositiveTestDataRequired() {
-    }
-
 }

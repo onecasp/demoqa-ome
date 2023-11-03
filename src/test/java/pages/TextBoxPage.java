@@ -11,33 +11,27 @@ import test_data.PositiveTextBoxData;
 public class TextBoxPage {
 
     public TextBoxPage userNameSet(String firstname, String lastname) {
-        Selenide.$(PracticeFormPage.cssusername).setValue(firstname +" "+ lastname);
+        Selenide.$(PracticeFormPage.cssUsername).setValue(firstname +" "+ lastname);
         return this;
     }
 
     public TextBoxPage emailSet(String userEmail) {
-        Selenide.$(PracticeFormPage.cssemail).setValue(userEmail);
+        Selenide.$(PracticeFormPage.cssEmail).setValue(userEmail);
         return this;
     }
 
     public TextBoxPage currentaddressSet(String current_address) {
-        Selenide.$(PracticeFormPage.csscurrentaddress).setValue(current_address);
+        Selenide.$(PracticeFormPage.cssCurrentAddress).setValue(current_address);
         return this;
     }
 
     public TextBoxPage permanentaddressSet(String permanent_address) {
-        Selenide.$(PracticeFormPage.csspermanentaddress).setValue(permanent_address);
-        return this;
-    }
-
-    public TextBoxPage allFieldsFill(PositiveTextBoxData testData) {
-        userNameSet(firstname, lastname).emailSet(userEmail).currentaddressSet(current_address)
-            .permanentaddressSet(permanent_address);
+        Selenide.$(PracticeFormPage.cssPermanentAddress).setValue(permanent_address);
         return this;
     }
 
     public TextBoxPage submitForm() {
-        Selenide.$(PracticeFormPage.csssubmit).click();
+        Selenide.$(PracticeFormPage.cssSubmit).click();
         return this;
     }
 }

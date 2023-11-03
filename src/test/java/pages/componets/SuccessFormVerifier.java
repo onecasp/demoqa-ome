@@ -30,24 +30,10 @@ public class SuccessFormVerifier {
             text(gender), text(userNumber));
     }
 
-    public static void successFormVerifier(PositiveTestDataAll testData) {
-        $(".table-responsive").shouldHave(text(testData.firstname + " "
-                + testData.lastname),
-            text(testData.userEmail), text(testData.gender), text(testData.userNumber),
-            text(testData.birth.day + " " + testData.birth.month + "," + testData.birth.year),
-            text(testData.subject),
-            text(testData.hobbie), text(testData.test_file), text(testData.current_address),
-            text(testData.state + " " + testData.city));
-    }
-
-    public static void successFormVerifier(PositiveTestDataRequired testData) {
-        $(".table-responsive").shouldHave(text(testData.firstname
-            + " " + testData.lastname), text(testData.userNumber), text(testData.gender));
-    }
-
-    public static void successFormVerifier(PositiveTextBoxData testData) {
-        $("#output").shouldHave(text(testData.firstname
-                + " " + testData.lastname), text(testData.userEmail), text(testData.current_address),
-            text(testData.permanent_address));
+    public static void successFormVerifier(String firstname, String lastname, String userEmail,
+        String current_address, String permanent_address) {
+        $("#output").shouldHave(text(firstname
+                + " " + lastname), text(userEmail), text(current_address),
+            text(permanent_address));
     }
 }
