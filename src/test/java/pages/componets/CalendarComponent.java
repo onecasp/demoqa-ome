@@ -8,8 +8,8 @@ import models.Date;
 
 public class CalendarComponent {
     public void setDate(Date date) {
-        Selenide.$(PracticeFormPage.cssyear).selectOption(date.year);
-        Selenide.$(PracticeFormPage.cssmonth).selectOption(date.month);
-        Selenide.$(PracticeFormPage.cssday).$(byText(date.day)).click();
+        Selenide.$(PracticeFormPage.cssYear).selectOption(date.year);
+        Selenide.$(PracticeFormPage.cssMonth).selectOption(date.month);
+        Selenide.$(PracticeFormPage.cssDay).$(byText(date.day)).click();
     }
 }

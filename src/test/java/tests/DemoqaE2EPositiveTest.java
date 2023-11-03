@@ -17,13 +17,16 @@ public class DemoqaE2EPositiveTest extends BaseTest {
         registrationFormOpener();
 
         RegistrationPage registrationPage = new RegistrationPage();
-        PositiveTestDataAll positiveTestDataAll = new PositiveTestDataAll();
 
         //fill form
-        registrationPage.fillAllFields(positiveTestDataAll).submitForm();
+        registrationPage.firstNameSet(firstname).lastNameSet(lastname).emailSet(userEmail)
+            .genderSet(gender).numberSet(userNumber).birthdaySet(birth).subjectSet(subject)
+            .hobbieSet(hobbie).uploadFile(test_file).currentaddressSet(current_address)
+            .stateSet(state).citySet(city).submitForm();
 
         //validation
-        SuccessFormVerifier.successFormVerifier(positiveTestDataAll);
+        SuccessFormVerifier.successFormVerifier(firstname, lastname, userEmail, gender, userNumber,
+            birth, subject, hobbie, test_file, current_address, state, city);
     }
 
     @Test
@@ -31,9 +34,9 @@ public class DemoqaE2EPositiveTest extends BaseTest {
         registrationFormOpener();
 
         RegistrationPage registrationPage = new RegistrationPage();
-        PositiveTestDataRequired positiveTestDataReuired = new PositiveTestDataRequired();
 
-        registrationPage.requiredFieldsFill(positiveTestDataReuired).submitForm();
+        registrationPage.firstNameSet(firstname).lastNameSet(lastname).genderSet(gender)
+            .numberSet(userNumber).submitForm();
 
         SuccessFormVerifier.successFormVerifier(firstname, lastname, gender, userNumber);
     }

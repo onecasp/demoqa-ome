@@ -16,9 +16,6 @@ public class PositiveTestDataAll {
     public static String city = "Delhi";
     public static Date birth = new Date("12", "May", "1990");
 
-    public PositiveTestDataAll() {
-    }
-
 
 }
 
