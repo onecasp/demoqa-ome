@@ -2,6 +2,7 @@ package test_data;
 
 import com.github.javafaker.Faker;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 import models.Date;
 
@@ -27,63 +28,38 @@ public class DataGenerator {
     }
 
     public static int getRandomInt(int min, int max) {
-        return ThreadLocalRandom.current().nextInt(min, max + 1);
+        return faker.number().numberBetween(min, max);
     }
 
     public static String getRandomGender() {
-        String[] genders = {"Male", "Female", "Other"};
-
-        return getRandomItemFromArray(genders);
+        return faker.options().option("Male", "Female", "Other");
     }
 
     public static String getRandomHobbie() {
-        String[] hobbies = {"Sports", "Reading", "Music"};
-
-        return getRandomItemFromArray(hobbies);
+        return faker.options().option("Sports", "Reading", "Music");
     }
 
     public static String getRandomState() {
-        String[] states = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
-
-        return getRandomItemFromArray(states);
+        return faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
     }
 
     public static String getRandomCity(String state) {
         return switch (state) {
-            case "NCR" -> {
-                String[] citiesNCR = {"Delhi", "Gurgaon", "Noida"};
-                yield getRandomItemFromArray(citiesNCR);
-            }
-            case "Uttar Pradesh" -> {
-                String[] citiesUP = {"Agra", "Lucknow", "Merrut"};
-                yield getRandomItemFromArray(citiesUP);
-            }
-            case "Haryana" -> {
-                String[] citiesH = {"Karnal", "Panipat"};
-                yield getRandomItemFromArray(citiesH);
-            }
-            case "Rajasthan" -> {
-                String[] citiesR = {"Jaipur", "Jaiselmer"};
-                yield getRandomItemFromArray(citiesR);
-            }
+            case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
+            case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
+            case "Haryana" -> faker.options().option("Karnal", "Panipat");
+            case "Rajasthan" -> faker.options().option("Jaipur", "Jaiselmer");
             default -> null;
         };
-
-    }
-
-    public static String getRandomItemFromArray(String[] array) {
-        int index = getRandomInt(0, array.length - 1);
-        return array[index];
     }
 
     public static String subjectGeneration() {
-        String[] subject = {"Maths",
+        return faker.options().option("Maths",
             "English",
             "Computer Science",
             "Arts",
             "History",
-            "Commerce"};
-        return getRandomItemFromArray(subject);
+            "Commerce");
     }
 
     public static String addressGenerator() {
@@ -91,39 +67,32 @@ public class DataGenerator {
     }
 
     public static String getRandomDay(String month) {
-        if (month == "January" || month == "March" || month == "May" || month == "July"
-            || month == "August" || month == "October" || month == "December") {
-            String[] days31 = new String[31];
-            Arrays.setAll(days31, i -> String.valueOf(i + 1));
-            return getRandomItemFromArray(days31);
-        } else if (month == "April" || month == "June" || month == "September"
-            || month == "November") {
-            String[] days30 = new String[30];
-            Arrays.setAll(days30, i -> String.valueOf(i + 1));
-            return getRandomItemFromArray(days30);
-        } else if (month == "February") {
-            String[] days28 = new String[28];
-            Arrays.setAll(days28, i -> String.valueOf(i + 1));
-            return getRandomItemFromArray(days28);
-        } else if (month == "FebruaryUp") {
-            String[] days29 = new String[29];
-            Arrays.setAll(days29, i -> String.valueOf(i + 1));
-            return getRandomItemFromArray(days29);
+        if (Objects.equals(month, "January") || Objects.equals(month, "March")
+            || Objects.equals(month, "May") || Objects.equals(month, "July")
+            || Objects.equals(month, "August") || Objects.equals(month, "October") || Objects.equals(
+            month, "December")) {
+            return String.valueOf(getRandomInt(1, 31));
+        } else if (Objects.equals(month, "April") || Objects.equals(month, "June") || Objects.equals(
+            month, "September")
+            || Objects.equals(month, "November")) {
+            return String.valueOf(getRandomInt(1, 30));
+        } else if (Objects.equals(month, "February")) {
+            return String.valueOf(getRandomInt(1, 28));
+        } else if (Objects.equals(month, "FebruaryUp")) {
+            return String.valueOf(getRandomInt(1, 29));
         }
         return null;
     }
 
     public static String getRandomMonth(String year) {
         if (Integer.parseInt(year) % 4 == 0) {
-            String[] monthsUp = {"January", "FebruaryUp", "March", "April", "May", "June", "July",
-                "August",
-                "September", "October", "November", "December"};
-            return getRandomItemFromArray(monthsUp);
+            return faker.options()
+                .option("January", "FebruaryUp", "March", "April", "May", "June", "July", "August",
+                    "September", "October", "November", "December");
         } else {
-            String[] months = {"January", "February", "March", "April", "May", "June", "July",
-                "August",
-                "September", "October", "November", "December"};
-            return getRandomItemFromArray(months);
+            return faker.options()
+                .option("January", "February", "March", "April", "May", "June", "July", "August",
+                    "September", "October", "November", "December");
         }
     }
 
@@ -135,12 +104,10 @@ public class DataGenerator {
         String year = yearGeneration();
         String month = getRandomMonth(year);
         String day = getRandomDay(month);
-        if (month == "FebruaryUp") {
-            Date date = new Date(day, "February", year);
-            return date;
+        if (month.equals("FebruaryUp")) {
+            return new Date(day, "February", year);
         } else {
-            Date date = new Date(day, month, year);
-            return date;
+            return new Date(day, month, year);
         }
     }
 }
